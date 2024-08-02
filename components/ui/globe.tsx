@@ -8,7 +8,7 @@ export type GlobeProps = React.ComponentPropsWithoutRef<'canvas'> & {
   longitude?: number
 }
 
-export function Globe({ latitude, longitude, ...props }: GlobeProps) {
+export function Globe({ latitude, longitude, style, ...props }: GlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null!);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export function Globe({ latitude, longitude, ...props }: GlobeProps) {
   return (
     <canvas
       ref={canvasRef}
-      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
+      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1, ...style }}
       {...props}
     />
   );
