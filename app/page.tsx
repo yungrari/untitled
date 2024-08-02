@@ -12,6 +12,10 @@ export default function Home() {
     <main className="flex flex-col h-screen justify-center items-center">
       <h1 className="font-bold leading-tight uppercase">Welcome to the %PROJECT_TITLE%!</h1>
 
+      <p>Your current location is{' '}
+        <code>{JSON.stringify({ latitude, longitude })}</code>
+      </p>
+
       <Globe latitude={+latitude} longitude={+longitude} />
 
       <Link href="/dashboard" title="Enter" prefetch={false}>
