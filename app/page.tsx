@@ -13,7 +13,9 @@ export default function Home() {
       <h1 className="font-bold leading-tight uppercase">Welcome to the %PROJECT_TITLE%!</h1>
 
       <p>Your current location is{' '}
-        <code>{JSON.stringify({ latitude, longitude })}</code>
+        {latitude && longitude 
+          ? <code>{JSON.stringify({ latitude, longitude })}</code> 
+          : 'unknown'}
       </p>
 
       <Globe latitude={+latitude} longitude={+longitude} />

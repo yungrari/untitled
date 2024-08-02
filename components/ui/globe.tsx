@@ -27,8 +27,8 @@ export function Globe({ latitude, longitude, ...props }: GlobeProps) {
       baseColor: [0.3, 0.3, 0.3],
       markerColor: [0.1, 0.8, 1],
       glowColor: [1, 1, 1],
-      markers: longitude && latitude 
-        ? [{ location: [longitude, latitude], size: 0.5 }] 
+      markers: latitude && longitude
+        ? [{ location: [latitude, longitude], size: 0.3 }] 
         : [],
       onRender: (state) => {
         state.phi = phi;
