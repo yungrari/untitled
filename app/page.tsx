@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Globe } from "@/components/ui/globe";
+import { Globe } from "@/components/widget/globe";
 
 export default function Home() {
   const latitude = headers().get("x-latitude") || ""
