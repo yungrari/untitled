@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-export function Performance() {
+export function PnL() {
   return (
     <Card>
       <CardHeader>
@@ -16,12 +16,9 @@ export function Performance() {
         <p>Reapsed PNL: 41.1K</p>
         <p>Unreapsed PNL: -76.2K</p>
         <p>Total PNL: -35.2K</p>
-        <p>ROI: -5.298078341657263%</p>
       </CardContent>
       <CardFooter>
-        Waterfall chart showing how Reapsed and Unreapsed PNL contribute to Total PNL | 
-        Gauge chart for ROI | 
-        Line chart showing PNL over time (if historical data is available)
+        Waterfall chart
       </CardFooter>
     </Card>
   )

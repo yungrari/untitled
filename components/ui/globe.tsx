@@ -16,8 +16,8 @@ export function Globe({ latitude, longitude, style, ...props }: GlobeProps) {
 
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
+      width: 350 * 2,
+      height: 350 * 2,
       phi: 0,
       theta: 0,
       dark: 1,
@@ -44,7 +44,7 @@ export function Globe({ latitude, longitude, style, ...props }: GlobeProps) {
   return (
     <canvas
       ref={canvasRef}
-      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1, ...style }}
+      style={{ width: 350, height: 350, maxWidth: "100%", aspectRatio: 1, ...style }}
       {...props}
     />
   );
