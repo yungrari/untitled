@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useMediaQuery } from "usehooks-ts"
 import Link from "next/link";
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Globe } from "@/components/ui/globe";
 import {
@@ -13,7 +12,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import {
   Drawer,
@@ -23,7 +21,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer"
 
 export type AuthProps = {
@@ -31,7 +28,7 @@ export type AuthProps = {
   longitude: number
 }
 
-function LoginForm({ latitude, longitude }: AuthProps) {
+function LoginButton() {
   const handleClick = () => {
     const date = new Date();
 
@@ -41,13 +38,9 @@ function LoginForm({ latitude, longitude }: AuthProps) {
   }
 
   return (
-    <>
-      <Globe className="mx-auto" latitude={latitude} longitude={longitude} />
-
-      <Link className="flex w-full px-4" href="/" title="Enter" prefetch={false}>
-        <Button className="w-full" onClick={handleClick}>Enter</Button>
-      </Link>
-    </>
+    <Link className="flex w-full px-4" href="/" title="Enter" prefetch={false}>
+      <Button className="w-full" onClick={handleClick}>Enter</Button>
+    </Link>
   );
 }
 
@@ -69,13 +62,14 @@ export function Auth({ latitude, longitude }: AuthProps) {
             <DialogDescription>
               Your current location is{' '}
               {latitude && longitude 
-                ? <code>{latitude}, {longitude}</code> 
+                ? <code>{latitude},{longitude}</code> 
                 : "unknown"}
             </DialogDescription>
           </DialogHeader>
 
-          {/* <ProfileForm /> */}
-          <LoginForm latitude={latitude} longitude={longitude} />
+          <Globe className="mx-auto" latitude={latitude} longitude={longitude} />
+
+          <LoginButton />
         </DialogContent>
       </Dialog>
     )
@@ -90,19 +84,20 @@ export function Auth({ latitude, longitude }: AuthProps) {
           <DrawerDescription>
             Your current location is {' '}
             {latitude && longitude 
-              ? <code>{latitude}, {longitude}</code> 
+              ? <code>{latitude},{longitude}</code> 
               : "unknown"}
           </DrawerDescription>
         </DrawerHeader>
 
-        {/* <ProfileForm className="px-4" /> */}
-        <LoginForm latitude={latitude} longitude={longitude} />
+        <Globe className="mx-auto" latitude={latitude} longitude={longitude} />
 
-        {/* <DrawerFooter className="pt-2">
+        <LoginButton />
+
+        <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
-        </DrawerFooter> */}
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )
